@@ -1,0 +1,50 @@
+<div class="container top30">
+  <div class="row">
+    <div class="col-md-3">
+      <img src="" class="img-thumbnail rounded-circle" [src]="artista.images | sinfoto"> 
+    </div>
+    <div class="col-md-9">
+      <h1>{{artista.name}}</h1>
+      <hr>
+      <a class="btn btn-outline-success btn-sm" [href]="artista.external_urls?.spotify" target="_blank" role="button">Abrir en spotify</a>
+      <a class="btn btn-outline-danger btn-sm" [routerLink]="['/search']" role="button">Regresar</a>
+    </div>
+    
+  </div>
+  <div class="top30">
+      <div class="row">
+        <div class="col-md-12">
+            <table class="table  table-hover table-inverse  bg-dark">
+                <thead class="thead-inverse">
+                  <tr>
+                    <th>#</th>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Popularidad</th>
+                    <th>Escuchar</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of tracks; let i = index">
+                      <td  scope="row">{{i+1}}</td>
+                      <td>
+                        <img src="" [src]="item.album.images | sinfoto" width="40" >
+                      </td>
+                      <td>{{item.name}}</td>
+                      <td>{{item.popularity}}%</td>
+                      <td>
+                        <!--<audio controls>
+                          <source [src]="item.preview_url">
+                            Tu navegador no soporta el audio
+                        </audio>-->
+                        
+                      </td>
+                    </tr>
+                    
+                  </tbody>
+              </table>
+        </div>  
+      </div>
+      
+    </div>  
+</div>
